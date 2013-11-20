@@ -1,20 +1,20 @@
 <h4>jQuery.escapeHtml()</h4>
-<h5>[A jQuery plugins to escape Html chracter]</h5>
+<h5> [A jQuery plugins to escape Html character] </h5>
 *Version 1.0 (Beta)*
 
-<h5>Introduction:</h5>
+<h5>Introduction :</h5>
 
-jQuery.escapeHtml(), is ajQuery plugins that remove special charesetr from text and make the string XSS safe.
+jQuery.escapeHtml(), is jQuery plugin that remove special character from text and make the string XSS safe.
 
 <br />
 
 <h5>Advantage of using jQuery.escapeHtml:</h5>
 
-The jQuery.escapeHtml method filter all html special chracter from cliend side so you have an extra side to avoid xss attacks on your site.
+The jQuery.escapeHtml method filters all html special character from client side so you have an extra side to avoid XSS attacks on your site.
 
 <h5>How to Use jQuery.escapeHtml:</h5>
 
-<h6>Example:</h6>
+<h6>Example :</h6>
 
 Just add below chunk of jQuery code on your page
 <pre>
