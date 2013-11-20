@@ -4,17 +4,17 @@
 
 <h5>Introduction :</h5>
 
-jQuery.escapeHtml(), is a jQuery plugin that removes special character from user input and make them XSS safe.
+jQuery.escapeHtml(), is a jQuery plugin to remove html tag from user input and make them XSS safe.
 <br />
 <h5>Advantage of using jQuery.escapeHtml:</h5>
 
-The jQuery.escapeHtml method filters all html special character from client side so you have an extra side to avoid XSS attacks on your site.
+The jQuery.escapeHtml method is design to filter all html tag from client side, so you have an extra wall to avoid XSS attacks on your site via user input.
 
 <h5>How to Use jQuery.escapeHtml:</h5>
 
 <h6>Example :</h6>
 
-Just add below chunk of jQuery code on your page
+Just add below chunk of jQuery code on your html page.
 <pre>
 (function ($) {
     $.fn.escapeHtml = function () {
@@ -44,6 +44,7 @@ var safeHtmlString = $('#yourelement').escapeHtml();
 	<title>Example page to use jQuery.escapeHtml()</title>	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
+	/* jQuery.escapeHtml code */
 	(function ($) {
 		$.fn.escapeHtml = function () {
 			var e = document.createElement("DIV"),
@@ -54,12 +55,15 @@ var safeHtmlString = $('#yourelement').escapeHtml();
 			return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
 		}
 	})(jQuery);
+	/* jQuery.escapeHtml code end */
+	/* DOM ready function */
 	$(function () {
 		$('#run').click(function () {
 			var s = $('#xssval').escapeHtml();
 			$('#output').html(s);
 		});
 	});
+	/* DOM ready function end */
 	</script >
 </head>
 <body>
