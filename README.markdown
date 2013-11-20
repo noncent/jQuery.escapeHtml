@@ -70,6 +70,10 @@ var safeHtmlString = $('#yourelement').escapeHtml();
 </html>
 ```
 
+<h6>Read more about XSS:</h6>
+<pre>
+https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+</pre>
 
 Cheers!!
 Neeraj Singh | neeraj[dot]singh[at]lbi[dot]co[dot]in
