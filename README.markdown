@@ -15,7 +15,7 @@ The jQuery.escapeHtml method is design to filter all html tag from client side, 
 <h6>Example :</h6>
 
 Just add below chunk of jQuery code on your html page.
-<pre>
+```javascript
 (function ($) {
     $.fn.escapeHtml = function () {
         var e = document.createElement("DIV"),
@@ -26,7 +26,7 @@ Just add below chunk of jQuery code on your html page.
         return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
     }
 })(jQuery);
-</pre>
+```
 
 and use like
 
