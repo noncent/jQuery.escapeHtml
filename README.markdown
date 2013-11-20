@@ -4,7 +4,7 @@
 
 <h5>Introduction :</h5>
 
-jQuery.escapeHtml(), is jQuery plugin that remove special character from text and make the string XSS safe.
+jQuery.escapeHtml(), is a jQuery plugin that removes special character from user input and make them XSS safe.
 <br />
 <h5>Advantage of using jQuery.escapeHtml:</h5>
 
