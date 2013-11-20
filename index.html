@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Example page to use jQuery.escapeHtml()</title>	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+	(function ($) {
+		$.fn.escapeHtml = function () {
+			var e = document.createElement("DIV"),
+			s = '';
+			e.innerHTML = $(this).val();
+			s = e.textContent || e.innerText || "";
+			e.remove();
+			return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
+		}
+	})(jQuery);
+	$(function () {
+		$('#run').click(function () {
+			var s = $('#xssval').escapeHtml();
+			$('#output').html(s);
+		});
+	});
+	</script >
+</head>
+<body>
+	<input type="text" name="xssval" id="xssval" value='' />
+	<span id="output"></span>
+	<button id="run">Run Code</button>
+</body>
+</html>
