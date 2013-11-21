@@ -1,5 +1,5 @@
 <h4>jQuery.escapeHtml()</h4>
-<h5> [A jQuery plugins to escape Html character] </h5>
+<h5> [A jQuery plugins to escape Html characters] </h5>
 *Version 1.0 (Beta)*
 
 <h5>Introduction :</h5>
@@ -31,6 +31,10 @@ Just add below chunk of jQuery code on your html page.
 and use like
 
 <pre>
+// if you want to real input value then, go with jQuery '.val()' option
+var htmlString = $('#yourelement').val();
+
+// if you want to filtered html chracter frominput value then, go with jQuery '.escapeHtml()' option
 var safeHtmlString = $('#yourelement').escapeHtml();
 </pre>
 
