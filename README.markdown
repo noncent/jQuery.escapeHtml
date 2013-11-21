@@ -36,7 +36,7 @@ var htmlString = $('#yourelement').val();
 ```
 
 ```javascript
-// if you want to filtered html chracter from input value then, go with jQuery '.escapeHtml()' option
+// if you want to remove html chracter then, go with jQuery '.escapeHtml()' option
 var safeHtmlString = $('#yourelement').escapeHtml();
 ```
 
