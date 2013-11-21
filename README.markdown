@@ -30,13 +30,15 @@ Just add below chunk of jQuery code on your html page.
 
 and use like
 
-<pre>
+```javascript
 // if you want to real input value then, go with jQuery '.val()' option
 var htmlString = $('#yourelement').val();
+```
 
+```javascript
 // if you want to filtered html chracter frominput value then, go with jQuery '.escapeHtml()' option
 var safeHtmlString = $('#yourelement').escapeHtml();
-</pre>
+```
 
 <h4>Example Page:</h4>
 
