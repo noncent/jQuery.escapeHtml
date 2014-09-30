@@ -11,7 +11,7 @@
 			$(e).remove();
 		} else {
 			e.remove();
-		}alert(s);
+		}
 		return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
 	};
 })(jQuery);
