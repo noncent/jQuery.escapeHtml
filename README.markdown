@@ -16,16 +16,24 @@ The jQuery.escapeHtml method is design to filter all html tag from client side, 
 
 Just add below chunk of jQuery code on your html page.
 ```javascript
-(function ($) {
-    $.fn.escapeHtml = function () {
-        var e = document.createElement("DIV"),
-            s = '';
-        e.innerHTML = $(this).val();
-        s = e.textContent || e.innerText || "";
-        e.remove();
-        return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
-    }
+/* Start */
+(function($) {
+	$.fn.escapeHtml = function() {
+		var ua = navigator.userAgent;
+		var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		var e = document.createElement("div"),
+		s = '';
+		$(e).text($(this).val() || $(this).html() || $(this).text());				
+		s = $(e).text();				
+		if (re.exec(ua) != null) {
+			$(e).remove();
+		} else {
+			e.remove();
+		}
+		return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
+	};
 })(jQuery);
+/* End */
 ```
 
 and use like
@@ -43,39 +51,68 @@ var safeHtmlString = $('#yourelement').escapeHtml();
 <h4>Example Page:</h4>
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Example page to use jQuery.escapeHtml()</title>	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript">
-	/* jQuery.escapeHtml code */
-	(function ($) {
-		$.fn.escapeHtml = function () {
-			var e = document.createElement("DIV"),
+<meta charset="UTF-8">
+<title>jQuery escapeHtml Plugin testing Page</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	/* Start */
+	(function($) {
+		$.fn.escapeHtml = function() {
+			var ua = navigator.userAgent;
+			var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+			var e = document.createElement("div"),
 			s = '';
-			e.innerHTML = $(this).val();
-			s = e.textContent || e.innerText || "";
-			e.remove();
+			$(e).text($(this).val() || $(this).html() || $(this).text());				
+			s = $(e).text();				
+			if (re.exec(ua) != null) {
+				$(e).remove();
+			} else {
+				e.remove();
+			}alert(s);
 			return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
-		}
+		};
 	})(jQuery);
-	/* jQuery.escapeHtml code end */
-	/* DOM ready function */
+	/* End */
+
+	/**
+	 * using escapeHtml to clean xss data
+	 * @return {[type]} [description]
+	 */
 	$(function () {
-		$('#run').click(function () {
-			var s = $('#xssval').escapeHtml();
-			$('#output').html(s);
+		$('#run-xssSafe').click(function () {
+			var s = $('#xssSafe').escapeHtml();				 
+			$('#output-xssSafe').html(s);
 		});
 	});
-	/* DOM ready function end */
-	</script >
+
+	/**
+	 * without escapeHtml getting xss data
+	 * @return {[type]} [description]
+	 */
+	$(function () {
+		$('#run-noXssSafe').click(function () {
+			var s = $('#noXssSafe').val();				 
+			$('#output-noXssSafe').html(s);
+		});
+	});
+
+</script>
 </head>
 <body>
-	<input type="text" name="xssval" id="xssval" value='' />
-	<span id="output"></span>
-	<button id="run">Run Code</button>
+<input type="text" name="xssSafe" id="xssSafe" value='<script>document.body.style.backgroundColor="red"; </script>' />		
+<span id="output-xssSafe"></span>
+<button id="run-xssSafe">Kill the XSS Data :)</button>
+
+<br><br><br>
+
+<input type="text" name="noXssSafe" id="noXssSafe" value='<script>document.body.style.backgroundColor="red"; </script>' />
+<span id="output-noXssSafe"></span>
+<button id="run-noXssSafe">XSS Killed me :(</button>
+
+
 </body>
 </html>
 ```
