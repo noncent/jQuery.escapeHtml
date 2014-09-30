@@ -1,12 +1,18 @@
 /* Start */
-(function ($) {
-	$.fn.escapeHtml = function () {
-		var e = document.createElement("DIV"),
+(function($) {
+	$.fn.escapeHtml = function() {
+		var ua = navigator.userAgent;
+		var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		var e = document.createElement("div"),
 		s = '';
-		e.innerHTML = $(this).val();
-		s = e.textContent || e.innerText || "";
-		e.remove();
+		$(e).text($(this).val() || $(this).html() || $(this).text());				
+		s = $(e).text();				
+		if (re.exec(ua) != null) {
+			$(e).remove();
+		} else {
+			e.remove();
+		}alert(s);
 		return s.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>?/gi, '');
-	}
+	};
 })(jQuery);
 /* End */
