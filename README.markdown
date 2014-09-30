@@ -1,6 +1,6 @@
 <h4>jQuery.escapeHtml()</h4>
 <h5> [A jQuery plugins to escape Html characters] </h5>
-*Version 1.0 (Beta)*
+*Version 1.2 (Beta)*
 
 <h5>Introduction :</h5>
 
